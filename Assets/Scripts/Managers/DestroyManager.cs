@@ -59,6 +59,7 @@ public class DestroyManager : MonoBehaviour {
 			Destroy(collider.gameObject);
 			health = health - damage;
 			shootCount = 1;
+			CameraShake.Shake(0.3f, 0.3f);
 		}
 		if(collider.tag == "EnemyBullet")
 		{

@@ -24,6 +24,7 @@ public class EnemyBullet : MonoBehaviour {
 		{	
 			DestroyManager.shootCount = 1;
 			DestroyManager.health -= BulletDamage;
+			CameraShake.Shake(0.2f, 0.2f);
 		}
 	}
 }

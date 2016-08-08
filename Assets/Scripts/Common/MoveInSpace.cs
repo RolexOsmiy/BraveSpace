@@ -24,7 +24,7 @@ public class MoveInSpace : MonoBehaviour {
     void Move() {
         Vector2 possition = transform.position;
 
-        float x = Input.GetAxisRaw("Horizontal");
+        float x = Input.GetAxisRaw("Horizontal"); 
         float y = Input.GetAxisRaw("Vertical");
 
         Vector2 direction = new Vector2(x, y).normalized;
