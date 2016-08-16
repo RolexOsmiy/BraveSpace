@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour {
     public float speed;
 	public static int bulletDamage = 1;
     Vector2 _direction;
+	public GameObject Explosion;
 
     // Use this for initialization
     void Start () {
@@ -42,6 +43,7 @@ public class Bullet : MonoBehaviour {
 	{
 		if (collider.gameObject.tag == "Enemy") 
 		{
+			Instantiate(Explosion, transform.position, transform.rotation);
 			this.gameObject.SetActive (false);
 		}
 	} 

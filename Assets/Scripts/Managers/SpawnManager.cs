@@ -16,7 +16,8 @@ public class SpawnManager : MonoBehaviour {
 		
 	}
 
-	void Update () {
+	void Update () 
+	{
 			nextSpawn();
 	}
 
@@ -44,12 +45,12 @@ public class SpawnManager : MonoBehaviour {
 				BasicSpawn ();
 				nextSpawnTime = Time.time + spawnRate_1;
 			}
-			if (ScoreManager.score > 20) 
+			if (ScoreManager.score > 40) 
 			{
 				StandartSpawn ();
 				nextSpawnTime = Time.time + spawnRate_2;
 			}
-			if (ScoreManager.score > 40) 
+			if (ScoreManager.score > 100) 
 			{
 				MediumSpawn();
 				nextSpawnTime = Time.time + spawnRate_3;
