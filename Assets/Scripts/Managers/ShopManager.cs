@@ -24,6 +24,7 @@ public class ShopManager : MonoBehaviour {
 	public int priceUPHP = 10;
 	public GameObject Shoot;
 	public GameObject ToMainMenu;
+	public static bool ShopManagerOn;
 	// Use this for initialization
 	void Start ()
 	{
@@ -38,22 +39,23 @@ public class ShopManager : MonoBehaviour {
 			ResetFunction ();
 			Reset = false;
 		}
-		if (Input.GetKeyDown (KeyCode.B)) 
-		{
-			if (!pause) 
-			{
-				Time.timeScale = 0;
-				pause = true; 
-				Shop.SetActive(true);
-				Shoot.SetActive (false);
+		if (MenuManager.EscapeOn == false) {
+			if (Input.GetKeyDown (KeyCode.B)) {
+				if (!pause) {
+					Time.timeScale = 0;
+					pause = true; 
+					Shop.SetActive (true);
+					Shoot.SetActive (false);
+					ShopManagerOn = true;
+				}
 			}
+			DMGBar.text = (int)DamageCount + " DMG";
+			CashBar.text = (int)money + " $";
+			MoneyScore.text = (int)money + " $";
+			DamagePriceText.text = "" + priceUPDamage;
+			HPRegPriceText.text = "" + priceUPReg;
+			HPPriceText.text = "" + priceUPHP;
 		}
-		DMGBar.text = (int)DamageCount+" DMG";
-		CashBar.text = (int)money + " $";
-		MoneyScore.text = (int)money + " $";
-		DamagePriceText.text = ""+priceUPDamage;
-		HPRegPriceText.text = ""+priceUPReg;
-		HPPriceText.text = ""+priceUPHP;
 	}
 	public void onClickBackShop()
 	{
@@ -61,6 +63,7 @@ public class ShopManager : MonoBehaviour {
 		pause = false; 
 		Shop.SetActive(false);
 		Shoot.SetActive (true);
+		ShopManagerOn = false;
 	}
 	public void onClickUpDamage()
 	{
@@ -105,6 +108,7 @@ public class ShopManager : MonoBehaviour {
 		DestroyManager.health = 100;
 		DestroyManager.maxHP = 100;
 		pause = false;
+		Time.timeScale = 1;  
 	}
 }
 

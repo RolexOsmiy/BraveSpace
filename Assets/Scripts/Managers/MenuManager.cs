@@ -12,20 +12,25 @@ public class MenuManager : MonoBehaviour {
 	public GameObject ToMainMenu;
 	public GameObject Lose;
 	public GameObject Managers;
+	public static bool EscapeOn;
+	public GameObject Shoot;
 
 	void Update ()
 	{
-		if (Input.GetKeyDown (KeyCode.Escape)) 
-		{
-			ToMainMenu.SetActive (true);
-			Time.timeScale = 0;  
-			ShopManager.pause = true; 
+		if (ShopManager.ShopManagerOn == false) {
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				ToMainMenu.SetActive (true);
+				Time.timeScale = 0;  
+				ShopManager.pause = true;
+				EscapeOn = true;
+				Shoot.SetActive (false);
+			}
 		}
 	}
 
 	public void onClickPlay()
 	{
-		ScoreManager.score = 0;
+		//ScoreManager.score = 0;
 		ShopManager.Reset = true;
 		SceneManager.LoadScene ("level");
 	}
@@ -70,6 +75,8 @@ public class MenuManager : MonoBehaviour {
 		ToMainMenu.SetActive (false);
 		Time.timeScale = 1;  
 		ShopManager.pause = false; 
+		EscapeOn = false;
+		Shoot.SetActive (true);
 	}
 	public void onClickRestartLevel()
 	{
@@ -82,6 +89,7 @@ public class MenuManager : MonoBehaviour {
 		Lose.SetActive (false);
 		SceneManager.LoadScene ("level");
 		Managers.SetActive (true);
+		Shoot.SetActive (true);
 	}
 
 }

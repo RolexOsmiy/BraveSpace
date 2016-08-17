@@ -18,7 +18,7 @@ public class ScoreManager : MonoBehaviour {
 	{
 		score = score + 1 * Time.deltaTime;
 		scoreText.text = "Score: " + (int) score;
-		if (score >= 250) 
+		if ((((int)score + 1) % 250) == 0)
 		{
 			Boss_1.SetActive (true);
 			MoveInSpace.Boss = true;
