@@ -30,9 +30,11 @@ public class MenuManager : MonoBehaviour {
 
 	public void onClickPlay()
 	{
-		//ScoreManager.score = 0;
+		EscapeOn = false;
+		ScoreManager.score = 0;
 		ShopManager.Reset = true;
 		SceneManager.LoadScene ("level");
+		ShopManager.ShopManagerOn = false;
 	}
 	public void onClickExit()
 	{
@@ -68,6 +70,7 @@ public class MenuManager : MonoBehaviour {
 	}
 	public void onClickYesLevel()
 	{
+		RestartFunction ();
 		SceneManager.LoadScene ("MainMenu");
 	}
 	public void onClickNoLevel()

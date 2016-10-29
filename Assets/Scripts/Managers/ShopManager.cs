@@ -39,9 +39,12 @@ public class ShopManager : MonoBehaviour {
 			ResetFunction ();
 			Reset = false;
 		}
-		if (MenuManager.EscapeOn == false) {
-			if (Input.GetKeyDown (KeyCode.B)) {
-				if (!pause) {
+		if (MenuManager.EscapeOn == false) 
+		{
+			if (Input.GetKeyDown (KeyCode.B)) 
+			{
+				if (!pause) 
+				{
 					Time.timeScale = 0;
 					pause = true; 
 					Shop.SetActive (true);
